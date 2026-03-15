@@ -1,0 +1,73 @@
+# ForgeLab Domain Lab – Admin Handoff
+
+## Network
+VMnet: VMnet2 (Host-only)
+
+Subnet: 192.168.50.0/24
+
+DC1: 192.168.50.10  
+WS1: 192.168.50.20  
+
+DNS: 192.168.50.10
+
+---
+
+## Domain
+
+Domain Name: forgelab.local  
+Domain Controller: DC1  
+
+---
+
+## Active Directory Structure
+
+Organizational Units:
+- IT
+- HR
+
+Users:
+- IT1
+- IT2
+- HR1
+- HR2
+
+Security Groups:
+- IT_GRP
+- HR_GRP
+
+Group Membership:
+- IT1, IT2 → IT_GRP
+- HR1, HR2 → HR_GRP
+
+---
+
+## Access Control
+
+Shared Folder
+
+
+Permissions:
+
+IT_GRP → Modify  
+HR users → No access
+
+---
+
+## Security Monitoring
+
+Event IDs monitored:
+
+4624 → Successful logon  
+4625 → Failed logon  
+4740 → Account lockout  
+4720 → User created  
+4728 / 4729 → Group membership change
+
+---
+
+## Attack Simulation
+
+Password spraying simulated using incorrect login attempts.
+
+Detected in Security logs using Event ID 4625 and 4740.
+
